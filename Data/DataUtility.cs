@@ -38,13 +38,17 @@ namespace StarLink_Contact.Data
 
         public static async Task ManageDataAsync(IServiceProvider svcProvider)
         {
+
+            //Obtaining the necesary services based on the IServiceProvider parameter 
             var dbContextSvc = svcProvider.GetRequiredService<ApplicationDbContext>();
 
             var userManagerSvc = svcProvider.GetRequiredService<UserManager<AppUser>>();
 
+            //align the database by checking migrations 
             await dbContextSvc.Database.MigrateAsync();
 
             // SEED DEMO USER 
+            await SeedDemoUserAsync(userManagerSvc);
         }
 
         private static async Task SeedDemoUserAsync(UserManager<AppUser> userManager)
