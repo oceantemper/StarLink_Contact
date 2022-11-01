@@ -24,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom  mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~img/blue.bird-removebg-preview.png" /> </a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/blue.bird-removebg-preview.png" height="100"/> </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link @(!path.Contains("Contacts") && !path.Contains("Catagories") ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link @(!path.Contains("Contacts") && !path.Contains("Contacts") ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>                 
                         <li class="nav-item"> 
                             <a class="nav-link @(path.Contains("Contacts") ? "active" : "" )" asp-area="" asp-controller="Contacts" asp-action="Index">Contacts</a>
@@ -46,7 +46,7 @@
             </div>
         </nav>
     </header>
-    <div class="container content">
+    <div class="container-fluid content">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -58,7 +58,7 @@
                <div class="copyright">&copy; 2022 Ocean Pena ALL Right Reserved</div>
            </div>
             <div class="col-12 col-md-4 d-flex justify-content-center order-0 order-md-2">
-                <img src="~/img/blue.bird-removebg-preview.png" height="50" />
+                <img src="~/img/blue.bird-removebg-preview.png" height="100" />
             </div>
             <div class="col-12 col-md-4 d-flex justify-content-center order-3">
 
@@ -72,8 +72,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -10,5 +10,9 @@ namespace StarLink_Contact.Data
             : base(options)
         {
         }
+
+        public virtual DbSet<Contact> Contacts { get; set; } = default!;
+
+        public  virtual DbSet<Catagory> Catagories { get; set; } = default!;
     }
 }

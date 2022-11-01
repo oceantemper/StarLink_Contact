@@ -18,11 +18,14 @@ namespace StarLink_Contact.Models
         public string? LastName { get; set; }
 
         [NotMapped]
-
         public string? FullName { get { return $"{FirstName} {LastName}"; } }
 
-        // TODO: Make realationship to Contact model 
-        // TODO:  Make realationship to Category model 
+        
+        //Navigation Properties 
+        public virtual ICollection<Contact> Contacts { get; set; } = new HashSet<Contact>();
+        
+
+        public virtual ICollection<Catagory> Categories { get; set; } = new HashSet<Catagory>();
 
 
     }

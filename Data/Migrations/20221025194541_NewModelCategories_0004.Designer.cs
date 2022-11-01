@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using StarLink_Contact.Data;
@@ -11,9 +12,10 @@ using StarLink_Contact.Data;
 namespace StarLink_Contact.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221025194541_NewModelCategories_0004")]
+    partial class NewModelCategories_0004
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,7 +269,7 @@ namespace StarLink_Contact.Data.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Catagories");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("StarLink_Contact.Models.Contact", b =>

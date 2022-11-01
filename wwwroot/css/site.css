@@ -1,18 +1,194 @@
-html {
-  font-size: 14px;
+:root {
+    /*colors for the template*/
+    --op-primary-color: rgb(145, 203, 251);
+    --op-secondary-color: rgb(66, 148, 186);
+    --op-highlight-color: rgb(250, 225, 120);
+    --op-dark-color: rgb(33, 33, 33);
+    --op-light-color: rgb(222, 238, 251);
+    --op-background-color: rgb(250, 250, 250, 0.8);
+    --op-nav-toggler-glow: rgba(250, 225, 120, 0.5);
+    /*-- fonts for the template--*/
+    --op-title-font: "Bebas Neue", Impact, Haettenschweiler, sans-serif;
+    --op-subtitle-font: "Fira Sans", sans-serif;
+    --op-body-font: "Roboto", sans-serif;
+    --op-font-size: 1.2rem;
+    --op-font-weight: 400;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+html,body{
+    height: 100%;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+
+    background-color:var(--op-primary-color);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    color: var(--op-dark-color);
+    font-family: var(--op-body-font);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+nav{
+    background-color: var(--op-background-color);
+}
+.navShadow {
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+main{
+    background-color: var(--op-primary-color);
+}
+
+.content {
+    flex: 1 0 auto;
+    padding-top:2.5rem;
+    padding-bottom:2.5rem;
+}
+/*--- shrinks the footer as small as posible---*/
+footer {
+    flex-shrink: 0;
+    background-color: var(--op-background-color);
+}
+
+.copyright{
+   font-size: .9rem;
+
+}
+
+/*button Overrides*/
+
+btn-outline-primary{
+    color: var(--op-dark-color);
+    border-color: var(--op-primary-color) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus{
+    border-color: var(--op-secondary-color) !important;
+    background-color: var(--op-primary-color);
+}
+
+
+btn-primary{
+
+    color: white !important;
+    background-color: var(--op-primary-color) !important;
+    border-color: var(--op-secondary-color);
+}
+
+
+.btn-primary:hover {
+    filter: brightness(1.2) !important;
+    border-color: var(--op-primary-color);
+
+}
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus{
+
+    filter:brightness(1.2) !important;
+}
+/*END BUTTON OVERIDES*/
+.btnLink{
+    width: 7rem;
+}
+
+.socialicons{
+    color: var(--op-dark-color);
+
+    opacity: 0.9;
+    font-size: 2rem;
+    transition: all 0.4s;
+}
+
+.socialicons:hover{
+    color: var(--op-highlight-color);
+    opacity: 1;
+}
+
+.icon{
+    font-size: 3.5rem;
+   
+}
+
+.textHightlight{
+    color: var(--op-dark-color);
+}
+
+.herotitle{
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: var(--op-title-font);
+    font-weight: 600;
+
+}
+
+.subtitle{
+    font-size: 1.5rem;
+}
+
+/*END: Landing page*/
+
+/*Square Image CSS*/
+
+
+.square-img-container{
+    position: relative;
+    background-color: var(--op-primary-color);
+    border-color: var(--op-highlight-color);
+    border-style: solid;
+
+}
+
+.square-img-container::after{
+
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+
+}
+
+.square-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; 
+}
+
+/*End Square Image CSS*/
+
+
+.editIcons{
+
+    font-size: 1.5rem;
+    opacity: .9;
+    color: var(--op-dark-color)
+}
+
+.editIcons:hover{
+
+    color: var(--op-primary-color);
+    font-weight: bold;
+    opacity: 1;
+    cursor: pointer; 
+
+}
+
+.sideNav{
+
+    border-radius: 25px;
+    border-color:var(--op-highlight-color);
+    border-style: solid;
+    border-width: 3px;
+    --op-background-color: var(--op-secondary-color);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding: 2rem 1rem 2rem 1rem;
+    height: fit-content;
 }

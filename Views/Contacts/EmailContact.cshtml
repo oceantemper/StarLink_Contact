@@ -1,0 +1,39 @@
+﻿@model StarLink_Contact.Models.EmailContactViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+<div class="card">
+    <form asp-action="EmailContact" asp-controller="Contacts" method="post">
+        <div class="card-header">
+            <h3 class="heroTitle fs-4 mt-2"> Email Contact: @Model.Contact!.FullName</h3>
+        </div>
+        <div class="card-body">
+            <div>
+             <div class="col">
+                <label asp-for="@Model.EmailData!.EmailAddress" class="form-label">To:</label>
+                <textarea type="email" readonly class="form-control" asp-for="@Model.EmailData!.EmailAddress" rows="3" class="form-control"></textarea>
+              </div>
+              <div class="col">
+                <label asp-for="@Model.EmailData!.EmailSubject" class="form-label">Subject:</label>
+                <input type="text" class="form-control" asp-for="@Model.EmailData!.EmailSubject" />
+              </div>
+              <div class="col">
+                <label asp-for="@Model.EmailData!.EmailBody" class="form-label">Message:</label>
+                <textarea class="form-control" rows=10 asp-for="@Model.EmailData!.EmailBody" required></textarea>
+              </div>
+            </div>
+        </div>
+        <div class="card-footer" d-flex justify-content-between->
+            <a asp-action="Index" asp-controller="Contacts" class="btn btn-outline-secondary rounded-pill btnLink">Back</a>
+            <button type="submit" class="btn btn-primary rounded-pill btnLink">Send</button>
+        </div>
+    </form>
+   
+</div>

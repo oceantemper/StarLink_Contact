@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using StarLink_Contact.Data;
@@ -11,9 +12,10 @@ using StarLink_Contact.Data;
 namespace StarLink_Contact.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221025190407_NewModelContact_0003")]
+    partial class NewModelContact_0003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +23,6 @@ namespace StarLink_Contact.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("CatagoryContact", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ContactsId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("CategoriesId", "ContactsId");
-
-                    b.HasIndex("ContactsId");
-
-                    b.ToTable("CatagoryContact");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -247,29 +234,6 @@ namespace StarLink_Contact.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("StarLink_Contact.Models.Catagory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("Catagories");
-                });
-
             modelBuilder.Entity("StarLink_Contact.Models.Contact", b =>
                 {
                     b.Property<int>("Id")
@@ -336,21 +300,6 @@ namespace StarLink_Contact.Data.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("CatagoryContact", b =>
-                {
-                    b.HasOne("StarLink_Contact.Models.Catagory", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StarLink_Contact.Models.Contact", null)
-                        .WithMany()
-                        .HasForeignKey("ContactsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -402,17 +351,6 @@ namespace StarLink_Contact.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("StarLink_Contact.Models.Catagory", b =>
-                {
-                    b.HasOne("StarLink_Contact.Models.AppUser", "AppUser")
-                        .WithMany("Categories")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("StarLink_Contact.Models.Contact", b =>
                 {
                     b.HasOne("StarLink_Contact.Models.AppUser", "AppUser")
@@ -426,8 +364,6 @@ namespace StarLink_Contact.Data.Migrations
 
             modelBuilder.Entity("StarLink_Contact.Models.AppUser", b =>
                 {
-                    b.Navigation("Categories");
-
                     b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
