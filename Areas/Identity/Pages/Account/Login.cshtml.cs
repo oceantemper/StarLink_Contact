@@ -108,7 +108,7 @@ namespace StarLink_Contact.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
-            
+            // login as Demo if the "Demo Button was clicked"
             if (!string.IsNullOrEmpty(demoLoginEmail))
             {
                 string email = _configuration[demoLoginEmail] ?? Environment.GetEnvironmentVariable(demoLoginEmail);
