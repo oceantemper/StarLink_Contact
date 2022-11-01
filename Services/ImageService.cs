@@ -5,7 +5,7 @@ namespace StarLink_Contact.Services
     public class ImageService : IImageService
     {
 
-        private readonly string defaultImage = "";
+        private readonly string defaultImage = "/img/DefaultContactImage.png";
 
         public string ConvertByteArrayToFile(byte[] fileData, string extension)
         {
